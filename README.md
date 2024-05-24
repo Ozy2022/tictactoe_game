@@ -8,7 +8,7 @@
 
   *  This simple friendly game as a web app with react.js is an amazing introduction to how the React library works 
   *  How to customize and render the react component
-  *  How to configure the Jason file with the react extension
+  *  How to configure the json file with the react extension
   *  The deployment was by surge.sh website and its simple and free hosting
 
 
