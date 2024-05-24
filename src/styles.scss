@@ -93,8 +93,8 @@ button {
 
 .board {
   .board-row {
-    display: flex;
-    flex-direction: row;
+    display:flex;
+    flex-direction:row;
     border-bottom: 2px solid #fff;
     &:last-child {
       border-bottom: none;
