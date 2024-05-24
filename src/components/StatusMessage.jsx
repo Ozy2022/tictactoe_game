@@ -1,8 +1,8 @@
-const StatusMessage = ({ winnerr, isXNext, squares }) => {
-  /* This line of code is checking if there are no more moves left in the game by using the `every`
-  method on the `squares` array. It checks if every element in the `squares` array is not equal to
-  `null`. If all elements are not `null`, it means there are no more moves left in the game. The
-  result is stored in the `noMovesLeft` constant as a boolean value. */
+const StatusMessage = ({ winnerr, gamingBoard }) => {
+  
+  // instead of a gaming Board.squares we destruct the value by this method
+  const {isXNext, squares} = gamingBoard;
+  
 
   const noMovesLeft = squares.every(squareValue => squareValue !== null);
 
