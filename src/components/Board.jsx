@@ -19,7 +19,6 @@ const Board = ({ squares, HandleSquareClick, winningSquares }) => {
         {renderSquare(0)}
         {renderSquare(1)}
         {renderSquare(2)}
-        <div />
       </div>
       <div className="board-row">
         {renderSquare(3)}

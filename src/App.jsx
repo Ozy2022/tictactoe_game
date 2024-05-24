@@ -9,18 +9,18 @@ const NEW_GAME = [{ squares: Array(9).fill(null), isXNext: false }];
 
 function App() {
   const [history, setHistory] = useState(NEW_GAME);
-
   const [currentMove, setCurrentMove] = useState(0);
+
   const gamingBoard = history[currentMove];
 
-  const {winnerr, winningSquares} = calculateWinner(gamingBoard.squares);
+  const { winner, winningSquares } = calculateWinner(gamingBoard.squares);
 
   const HandleSquareClick = clickedPosition => {
-    if (gamingBoard.squares[clickedPosition] || winnerr) {
+    if (gamingBoard.squares[clickedPosition] || winner) {
       return;
     }
     setHistory(currentHistory => {
-      const isTraversing = currentHistory + 1 !== currentHistory.length;
+      const isTraversing = currentMove + 1 !== currentHistory.length;
 
       const lastGamingState = isTraversing
         ? currentHistory[currentMove]
@@ -59,22 +59,33 @@ function App() {
 
   return (
     <div className="app">
-      <StatusMessage winnerr={winnerr} gamingBoard={gamingBoard} />
+      <h1>
+        Tic <span className="text-green">Tac</span> Toe
+      </h1>
+      <StatusMessage winner={winner} gamingBoard={gamingBoard} />
       <Board
         squares={gamingBoard.squares}
         HandleSquareClick={HandleSquareClick}
-        winningSquares = {winningSquares}
+        winningSquares={winningSquares}
       />
       <button
         type="button"
         onClick={onNewGameStart}
-        className={`btn-reset ${winnerr ? 'active' : ''}`}
+        className={`btn-reset ${winner ? 'active' : ''}`}
       >
-        Start a New Game
+        Start a new game
       </button>
 
-      <h2>Current Game History</h2>
+      <h2
+        style={{
+          fontWeight: 'normal',
+        }}
+      >
+        Current game history
+      </h2>
       <History history={history} MoveTo={MoveTo} currentMove={currentMove} />
+
+      <div className="bg-balls"></div>
     </div>
   );
 }
